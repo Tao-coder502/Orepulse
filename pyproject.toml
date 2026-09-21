@@ -1,0 +1,17 @@
+[tool.pytest.ini_options]
+# Run tests from the agent-runtime context so the local packages (agents, schemas, tools) resolve
+testpaths = ["tests"]
+pythonpath = ["agent-runtime"]
+
+[tool.pyright]
+# Tells Pylance/Pyright that agent-runtime/ is the Python source root,
+# so bare imports like `agents.supervisor`, `schemas.findings`, etc. resolve correctly.
+include = ["agent-runtime"]
+extraPaths = ["agent-runtime"]
+venvPath = "agent-runtime"
+venv = ".venv"
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+reportMissingImports = "warning"
+reportMissingModuleSource = "none"
+

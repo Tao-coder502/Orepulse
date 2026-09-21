@@ -1,0 +1,14 @@
+{
+  "include": [
+    "agent-runtime"
+  ],
+  "extraPaths": [
+    "agent-runtime"
+  ],
+  "venvPath": "agent-runtime",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": "warning",
+  "reportMissingModuleSource": "none"
+}

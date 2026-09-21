@@ -1,0 +1,26 @@
+{
+  "name": "OrePulse AI — Offline Mining Learning Laboratory",
+  "short_name": "OrePulse AI",
+  "description": "Interactive agentic mining learning laboratory powered by Offline AI and Google ADK 2.0 multi-agent protocol.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c111a",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "utilities"],
+  "lang": "en"
+}

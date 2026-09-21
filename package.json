@@ -1,0 +1,20 @@
+{
+  "name": "orepulse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OrePulse AI - Interactive Agentic Mining Learning Laboratory",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix apps/web run dev\" \"npm --prefix apps/server run dev\"",
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:server": "npm --prefix apps/server run dev",
+    "build": "npm --prefix apps/server run build && npm --prefix apps/web run build",
+    "build:server": "npm --prefix apps/server run build",
+    "build:web": "npm --prefix apps/web run build",
+    "test": "npm --prefix apps/server test && python -m pytest tests/",
+    "test:server": "npm --prefix apps/server test",
+    "test:python": "python -m pytest tests/"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}

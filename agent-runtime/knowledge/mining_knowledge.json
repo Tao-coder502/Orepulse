@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "description": "OrePulse offline mining knowledge base — open-pit haulage operations, thermal dynamics, and safety thresholds.",
+  "entries": [
+    {
+      "id": "thermal-001",
+      "topic": "diesel_electric_thermal_dynamics",
+      "title": "Diesel-Electric Haul Truck Engine Thermal Behaviour on Gradient Ramps",
+      "content": "Diesel-electric haul trucks (such as 240-tonne class vehicles used in open-pit copper mines) convert diesel combustion energy into electrical traction power via alternators and traction motors. On uphill gradient ramps (typically 8–10% grade), continuous high-torque demand causes sustained high fuel burn, significantly elevating coolant and engine block temperatures. Natural convective cooling is reduced because the truck moves slowly under heavy load. Engine block temperatures above 100°C are considered critically unsafe; the diesel engine management system typically triggers a forced shutdown above this threshold. In educational simulations, this threshold is represented as the hard limit for the Safety Engine override.",
+      "keywords": ["temperature", "engine", "thermal", "overheat", "diesel", "electric", "gradient", "ramp", "cooling", "coolant"],
+      "safety_threshold": "100°C engine block temperature — hard shutdown boundary",
+      "source": "Open-pit haul truck operational standards (educational simulation context)"
+    },
+    {
+      "id": "thermal-002",
+      "topic": "congestion_thermal_compounding",
+      "title": "Ramp Congestion Compounding Effect on Thermal Risk",
+      "content": "When haul ramp congestion exceeds approximately 60%, truck spacing collapses below the minimum safe following distance. This has a dual thermal impact: (1) slow-moving trucks in queue continue burning fuel at high throttle while moving minimally, generating heat without effective airflow for convective cooling; (2) congestion prevents emergency retreat or staging of overheating vehicles. The combination of engine temperature above 100°C AND ramp congestion above 60% represents a compounded operational risk scenario that mandates immediate supervisor escalation and operations halt. Preventive dispatch throttling (reducing trucks dispatched per cycle) is the standard mitigation before thresholds are breached.",
+      "keywords": ["congestion", "ramp", "compounding", "combined", "risk", "spacing", "following distance", "halt", "emergency"],
+      "safety_threshold": "60% ramp congestion threshold — combined risk boundary",
+      "source": "Open-pit traffic management educational model"
+    },
+    {
+      "id": "dispatch-001",
+      "topic": "dispatch_spacing_throttling",
+      "title": "Dispatch Spacing and Throttling Guidelines for Open-Pit Haul Fleets",
+      "content": "Optimal haul truck dispatch spacing ensures ramp congestion remains below 40% during normal operations. At the Kansanshi copper mine (reference educational model), pit-to-surface single-ramp configurations are particularly sensitive to dispatch bunching. Standard dispatch intervals target one truck per 90–120 seconds on a single-ramp system. When congestion rises to the 40–60% range (WARNING state), dispatch throttling — increasing spacing to 150–180 seconds — is the primary corrective action. Above 60% (CRITICAL state), dispatch suspension and rerouting to secondary ramp access is required before continuing production.",
+      "keywords": ["dispatch", "spacing", "throttling", "schedule", "interval", "fleet", "availability", "reroute"],
+      "safety_threshold": "40% — normal; 60% — critical corrective action required",
+      "source": "Kansanshi open-pit haul management educational reference"
+    },
+    {
+      "id": "safety-001",
+      "topic": "safety_engine_authority",
+      "title": "Safety Engine Authority vs AI Advisory Recommendations",
+      "content": "In the OrePulse educational simulation, AI agents (Supervisor, Fleet, Maintenance) produce advisory recommendations. These proposals are advisory only — they do not constitute commands. All recommendations are submitted to a deterministic TypeScript Safety Engine, which evaluates them against hard operational thresholds. The Safety Engine can: (1) ALLOW a recommendation if it passes all checks; (2) OVERRIDE a recommendation and mandate a halt if critical thresholds are breached; (3) CONSTRAIN a proposal if it is inappropriate for current conditions. The AI recommendation and the Safety Engine final decision are both surfaced to the learner to demonstrate the 'AI proposes → Safety Engine validates → human decides' governance pattern.",
+      "keywords": ["safety", "engine", "override", "authority", "advisory", "governance", "human oversight", "deterministic"],
+      "safety_threshold": "N/A — Safety Engine is the authoritative boundary enforcer",
+      "source": "OrePulse AI architecture specification"
+    },
+    {
+      "id": "maintenance-001",
+      "topic": "preventive_maintenance_triggers",
+      "title": "Preventive Maintenance Scheduling Triggers for Haul Trucks",
+      "content": "Haul truck preventive maintenance is triggered by a combination of engine temperature exceedance history, operating hours since last service, and anomaly alert codes. In educational simulation, maintenance status is classified as: NORMAL (no outstanding alerts, temperature within nominal range 70–90°C), DEGRADED (temperature 90–100°C, non-critical alert code, e.g. THERMAL_ALERT_MODERATE), or CRITICAL (temperature >100°C, high-severity alert code, e.g. OVERHEAT_CRITICAL). DEGRADED status triggers a preventive maintenance scheduling recommendation before the next production shift. CRITICAL status triggers an immediate STOP_AND_INFORM_SUPERVISOR recommendation, bypassing the next shift delay.",
+      "keywords": ["maintenance", "preventive", "scheduling", "alert", "degraded", "critical", "temperature", "hours", "anomaly"],
+      "safety_threshold": "CRITICAL alert at temperature >100°C",
+      "source": "Open-pit haul truck maintenance management educational model"
+    },
+    {
+      "id": "operations-001",
+      "topic": "normal_operations_baseline",
+      "title": "Nominal Operating Parameters for Open-Pit Haul Operations",
+      "content": "Normal (GREEN) operating state in open-pit haul operations is characterised by: fleet availability >85%, engine block temperature 70–90°C, ramp congestion <40%, no active maintenance alerts. Under nominal conditions, standard automated dispatch supervision continues with no human intervention required. Minor adjustments (drill speed optimisation, ore routing fine-tuning) may be applied as productivity measures. In the OrePulse simulation, the NORMAL decision with proposedAction=adjustDrillSpeed represents this baseline state.",
+      "keywords": ["normal", "nominal", "baseline", "operational", "availability", "green", "standard", "automated"],
+      "safety_threshold": "Ramp <40%, temperature <90°C, availability >85%",
+      "source": "Open-pit operations management educational model"
+    },
+    {
+      "id": "a2a-001",
+      "topic": "agent_to_agent_communication",
+      "title": "A2A Protocol Multi-Agent Communication in OrePulse",
+      "content": "OrePulse uses an Agent2Agent (A2A) communication protocol for structured inter-agent messaging. The Supervisor agent dispatches parallel analysis requests to Fleet and Maintenance specialist agents using JSON-RPC 2.0 envelopes. Each specialist returns structured findings (status, concerns, relevantSignals, summary) and a domain recommendation. The Supervisor synthesizes these findings into a unified advisory recommendation. All inter-agent messages are recorded as trace events in the AgentExecutionTrace, providing full auditability of the multi-agent reasoning chain.",
+      "keywords": ["A2A", "agent", "communication", "protocol", "parallel", "specialist", "fleet", "maintenance", "supervisor", "trace"],
+      "safety_threshold": "N/A — communication protocol",
+      "source": "OrePulse AI A2A protocol specification"
+    }
+  ]
+}
